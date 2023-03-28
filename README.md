@@ -1,3 +1,1 @@
-# Printf
-
-Project print_f implementation
+printf
