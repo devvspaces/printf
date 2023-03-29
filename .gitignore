@@ -1,11 +1,12 @@
-# -*- mode: gitignore; -*-
+.vscode/
+*test*/
+*test*
 *~
-<<<<<<< HEAD
-=======
-
-# putchar
-_putchar.c
-
-# main
-*-main.c
->>>>>>> origin/master
+*#
+*.exe
+*.out
+*.o
+*.gch
+*.log
+prog.py
+main.c
