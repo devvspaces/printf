@@ -5,6 +5,9 @@
 #include <stdio.h>
 
 int _printf(const char *format, ...);
+int _putchar(char c);
+int _strlen(char *s);
+int _strlenc(const char *s);
 int print_c(va_list args);
 int print_s(va_list args);
 

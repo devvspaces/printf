@@ -10,14 +10,24 @@
  */
 int print_s(va_list args)
 {
-	int count = 0;
-	char *s = va_arg(args, char *);
+	char *s;
+	int i, count;
 
-	while (s[count] != '\0')
+	s = va_arg(args, char *);
+
+	if (s == NULL)
 	{
-		write(1, &s[count], 1);
-		count++;
+		s = "(null)";
+		count = _strlen(s);
+		for (i = 0; i < count; i++)
+			_putchar(s[i]);
+		return (count);
 	}
-
-	return (count);
+	else
+	{
+		count = _strlen(s);
+		for (i = 0; i < count; i++)
+			_putchar(s[i]);
+		return (count);
+	}
 }
