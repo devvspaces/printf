@@ -8,7 +8,7 @@
  * @args_list: The arguments list
  * @fmt_info: The format info
  */
-void convert_fmt_percent(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_percent(va_list *args_list, format_data_type *fmt_info)
 {
 	(void)args_list;
 	_putchar(fmt_info->spec);
@@ -19,7 +19,7 @@ void convert_fmt_percent(va_list *args_list, fmt_info_t *fmt_info)
  * @args_list: The arguments list
  * @fmt_info: The format info
  */
-void convert_fmt_p(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_p(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len;
 	void *ptr = va_arg(*args_list, void *);
@@ -56,7 +56,7 @@ void convert_fmt_p(va_list *args_list, fmt_info_t *fmt_info)
  * @args_list: The arguments list
  * @fmt_info: The format info
  */
-void convert_fmt_c(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_c(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len = 1;
 	char str = va_arg(*args_list, int);
@@ -79,7 +79,7 @@ void convert_fmt_c(va_list *args_list, fmt_info_t *fmt_info)
  * @args_list: The arguments list
  * @fmt_info: The format info
  */
-void convert_fmt_s(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_s(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len;
 	char *str = va_arg(*args_list, char *);

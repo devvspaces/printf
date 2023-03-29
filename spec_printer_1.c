@@ -11,7 +11,7 @@
  *
  * Return: The number of characters written
  */
-void convert_fmt_di(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_di(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len = 0, zeros_count = 0, num_len;
 	long num;
@@ -62,7 +62,7 @@ void convert_fmt_di(va_list *args_list, fmt_info_t *fmt_info)
  *
  * Return: The number of characters written
  */
-void convert_fmt_xX(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_xX(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len = 0, zeros_count = 0, max_w, max_p, num_len;
 	unsigned long num;
@@ -111,7 +111,7 @@ void convert_fmt_xX(va_list *args_list, fmt_info_t *fmt_info)
  *
  * Return: The number of characters written
  */
-void convert_fmt_o(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_o(va_list *args_list, format_data_type *fmt_info)
 {
 	int i = 0, zeros_count = 0, num_len = 0, len = 0, max_w, max_p;
 	unsigned long num;
@@ -157,7 +157,7 @@ void convert_fmt_o(va_list *args_list, fmt_info_t *fmt_info)
  * @args_list: The arguments list
  * @fmt_info: The format info
  */
-void convert_fmt_u(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_u(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len = 0, zeros_count = 0, num_len;
 	unsigned long num, max_w, max_p;

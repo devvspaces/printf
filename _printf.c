@@ -13,8 +13,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, tmp, processing_escape = FALSE, error = 1, last_token;
-	fmt_info_t fmt_info;
+	int i = 0, tmp, esc_key = FALSE, error = 1, last_token;
+	format_data_type fmt_info;
 	va_list args;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -23,10 +23,10 @@ int _printf(const char *format, ...)
 	write_to_buffer(0, -1);
 	for (i = 0; format && *(format + i) != '\0'; i++)
 	{
-		if (processing_escape)
+		if (esc_key)
 		{
 			tmp = read_format_info(format + i, args, &fmt_info, &last_token);
-			processing_escape = FALSE;
+			esc_key = FALSE;
 			set_format_error(format, &i, tmp, last_token, &error);
 			if (is_specifier(fmt_info.spec))
 				write_format(&args, &fmt_info);
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			if (*(format + i) == '%')
-				processing_escape = TRUE;
+				esc_key = TRUE;
 			else
 				_putchar(*(format + i));
 		}
@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
  * @args_list: The arguments list
  * @fmt_info: The format info parameters that were read
  */
-void write_format(va_list *args_list, fmt_info_t *fmt_info)
+void write_format(va_list *args_list, format_data_type *fmt_info)
 {
 	int i;
 	spec_printer_t spec_printers[] = {

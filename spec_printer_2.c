@@ -7,7 +7,7 @@
  * @args_list: The arguments list
  * @fmt_info: The format info
  */
-void convert_fmt_b(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_b(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, size = 32, len = 0;
 	unsigned int num = va_arg(*args_list, unsigned int), tmp;
@@ -51,7 +51,7 @@ void convert_fmt_b(va_list *args_list, fmt_info_t *fmt_info)
  *
  * Return: The number of characters written
  */
-void convert_fmt_S(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_S(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len;
 	char *str = va_arg(*args_list, char *);
@@ -97,7 +97,7 @@ void convert_fmt_S(va_list *args_list, fmt_info_t *fmt_info)
  *
  * Return: The number of characters written
  */
-void convert_fmt_R(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_R(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len, is_low_1, is_low_2, is_upper, is_lower;
 	char *str = va_arg(*args_list, char *);
@@ -138,7 +138,7 @@ void convert_fmt_R(va_list *args_list, fmt_info_t *fmt_info)
  *
  * Return: The number of characters written
  */
-void convert_fmt_r(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_r(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len;
 	char *str = va_arg(*args_list, char *);

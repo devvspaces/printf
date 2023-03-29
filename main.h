@@ -62,7 +62,7 @@ struct format_info
 	char group;
 	char pad;
 };
-typedef struct format_info fmt_info_t;
+typedef struct format_info format_data_type;
 /**
  * struct spec_printer - Represents a function that prints an argument
  * \ based on a determined format
@@ -72,7 +72,7 @@ typedef struct format_info fmt_info_t;
 struct spec_printer
 {
 	char spec;
-	void (*print_arg)(va_list *args, fmt_info_t *fmt_info);
+	void (*print_arg)(va_list *args, format_data_type *fmt_info);
 };
 typedef struct spec_printer spec_printer_t;
 typedef unsigned char uchar_t;
@@ -97,7 +97,7 @@ int _putchar(char c);
 int _putstr(char *str);
 int write_to_buffer(char c, char action);
 int _printf(const char *format, ...);
-void write_format(va_list *args_list, fmt_info_t *fmt_info);
+void write_format(va_list *args_list, format_data_type *fmt_info);
 
 
 void print_repeat(char c, int n);
@@ -107,36 +107,36 @@ void set_format_error(const char *, int *, int len, int, int *);
 void put_num(int zeros_count, long num, char *str);
 
 
-void init_format_info(fmt_info_t *spec);
-fmt_info_t *new_format_info();
+void init_format_info(format_data_type *spec);
+format_data_type *new_format_info();
 float_info_t *new_float_info(ushort_t exponent_size, ushort_t mantissa_size);
 void free_float_info(float_info_t *flt_info);
 
 
 int set_number(const char *str, int *number);
-void set_length(char cur, int *pos, fmt_info_t *fmt_info);
-int set_flags(const char *str, fmt_info_t *fmt_info);
+void set_length(char cur, int *pos, format_data_type *fmt_info);
+int set_flags(const char *str, format_data_type *fmt_info);
 void set_precision(const char *str, va_list args,
-	fmt_info_t *fmt_info, int *i, int *error_status);
-int read_format_info(const char *, va_list, fmt_info_t *, int *);
+	format_data_type *fmt_info, int *i, int *error_status);
+int read_format_info(const char *, va_list, format_data_type *, int *);
 
 
-void convert_fmt_percent(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_p(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_c(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_s(va_list *args_list, fmt_info_t *fmt_info);
+void convert_fmt_percent(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_p(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_c(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_s(va_list *args_list, format_data_type *fmt_info);
 
-void convert_fmt_di(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_xX(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_o(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_u(va_list *args_list, fmt_info_t *fmt_info);
+void convert_fmt_di(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_xX(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_o(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_u(va_list *args_list, format_data_type *fmt_info);
 
-void convert_fmt_b(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_R(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_r(va_list *args_list, fmt_info_t *fmt_info);
-void convert_fmt_S(va_list *args_list, fmt_info_t *fmt_info);
+void convert_fmt_b(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_R(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_r(va_list *args_list, format_data_type *fmt_info);
+void convert_fmt_S(va_list *args_list, format_data_type *fmt_info);
 
-void convert_fmt_fF(va_list *args_list, fmt_info_t *fmt_info);
+void convert_fmt_fF(va_list *args_list, format_data_type *fmt_info);
 
 
 int str_len(char *str);

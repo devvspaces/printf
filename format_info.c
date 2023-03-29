@@ -5,7 +5,7 @@
  * init_format_info - initializes a format info struct
  * @spec: The format info to initialize
  */
-void init_format_info(fmt_info_t *spec)
+void init_format_info(format_data_type *spec)
 {
 	if (spec)
 	{
@@ -33,11 +33,11 @@ void init_format_info(fmt_info_t *spec)
  *
  * Return: The pointer to the newly created format info structure or NULL
  */
-fmt_info_t *new_format_info()
+format_data_type *new_format_info()
 {
-	fmt_info_t *spec;
+	format_data_type *spec;
 
-	spec = malloc(sizeof(fmt_info_t));
+	spec = malloc(sizeof(format_data_type));
 	if (spec)
 		init_format_info(spec);
 	return (spec);

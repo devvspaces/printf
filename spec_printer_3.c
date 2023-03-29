@@ -10,7 +10,7 @@
  *
  * Return: The number of characters written
  */
-void convert_fmt_fF(va_list *args_list, fmt_info_t *fmt_info)
+void convert_fmt_fF(va_list *args_list, format_data_type *fmt_info)
 {
 	int i, len, num_len, zeros_count, max_w;
 	double num = va_arg(*args_list, double);
